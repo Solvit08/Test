@@ -1,0 +1,35 @@
+plugins{
+    id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies{
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    implementation 'org.junit.jupiter:junit-jupiter-params:5.1.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.10.1'
+
+    testImplementation 'io.qameta.allure:allure-junit5:2.27.0'
+    testImplementation 'io.qameta.allure:allure-java-commons:2.27.0'
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.27.0'
+    testImplementation 'io.qameta.allure:allure-commandline:2.27.0'
+    testImplementation 'io.qameta.allure:allure-assertj:2.27.0'
+
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.8'
+
+    implementation 'io.netty:netty-codec-http:4.1.104.Final'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
+    implementation 'org.seleniumhq.selenium:selenium-java:4.18.1'
+
+    implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
